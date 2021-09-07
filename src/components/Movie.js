@@ -61,4 +61,8 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, {deleteMovie})(Movie);
+const mapActionsToProps = {
+    deleteMovie: deleteMovie,
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(Movie);
