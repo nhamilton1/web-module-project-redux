@@ -5,6 +5,7 @@ import MovieFooter from './MovieFooter';
 
 const MovieList = (props)=> {
 
+
     return (
         <div className="col">
             <table className="table table-striped table-hover">
@@ -31,9 +32,9 @@ const MovieList = (props)=> {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state.movie)
+    console.log(state.movie)
     return({
-        movies: state.movies,
+        movies: state.movieReducer.movies,
     })
 }
 
