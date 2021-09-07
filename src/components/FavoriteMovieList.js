@@ -6,10 +6,12 @@ import { deleteFavorites } from '../actions/movieActions';
 
 const FavoriteMovieList = (props) => {
     const favorites = props.favorites;
+    console.log(favorites)
 
-    const handleDeleteFavorites = () => {
+    const handleDeleteFavorites = (id) => {
         // console.log(props.dispatch(deleteFavorites(favorites.id)))
-        console.log(props.deleteFavorites(favorites.id))
+        console.log(props.deleteFavorites(id))
+        props.deleteFavorites(id)
     }
     
     return (<div className="col-xs savedContainer">
