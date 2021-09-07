@@ -12,10 +12,10 @@ const favoritesReducer = (state = initialState, action) => {
             return({...state, favorites: [...state.favorites, action.payload]})
 
         case DELETE_FAVORITES:
-            return({...state, favorites: state.favorites.filter(movie => (movie.id !==action.payload))})
+            return({...state, favorites: state.favorites.filter(movie => (action.payload !== movie.id))})
 
         case TOGGLE_FAVORITES:
-            return({...state, displayFavorites: action.payload, displayFavorites: !state.displayFavorites})
+            return({...state, displayFavorites: !state.displayFavorites})
 
         default: return state
     }

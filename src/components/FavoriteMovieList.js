@@ -6,9 +6,10 @@ import { deleteFavorites } from '../actions/movieActions';
 
 const FavoriteMovieList = (props) => {
     const favorites = props.favorites;
+    console.log(favorites)
 
-    const handleDeleteFavorites = (id) => {
-        props.deleteFavorites(id)
+    const handleDeleteFavorites = () => {
+        props.dispatch(deleteFavorites(favorites.id))
     }
     
     return (<div className="col-xs savedContainer">
@@ -18,7 +19,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span onClick={handleDeleteFavorites} class="material-icons">remove_circle</span></span>
+                        <span><span onClick={handleDeleteFavorites} className="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {deleteFavorites} )(FavoriteMovieList);
+export default connect(mapStateToProps)(FavoriteMovieList);
