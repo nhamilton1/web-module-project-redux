@@ -17,7 +17,7 @@ export const addFavorites = (id) => {
 }
 
 export const deleteFavorites = (id) => {
-    return ({ type: DELETE_FAVORITES,  payload: id})
+    return ({ type: DELETE_FAVORITES,  payload: id })
 }
 
 export const toggleFavorites = (id) => {
