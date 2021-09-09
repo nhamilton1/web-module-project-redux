@@ -1,17 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteFavorites } from '../actions/movieActions';
+import { deleteFavorites } from '../actions/favoriteActions';
 
 
 const FavoriteMovieList = (props) => {
-    const favorites = props.favorites;
-    console.log(favorites)
+    const {favorites, deleteFavorites} = props;
 
-    const handleDeleteFavorites = (id) => {
-        // console.log(props.dispatch(deleteFavorites(favorites.id)))
-        console.log(props.deleteFavorites(id))
-        props.deleteFavorites(id)
+    const handleClick = (id) => {
+        deleteFavorites(id)
     }
     
     return (<div className="col-xs savedContainer">
@@ -21,7 +18,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span onClick={handleDeleteFavorites} className="material-icons">remove_circle</span></span>
+                        <span onClick={()=> {handleClick(movie.id)}}><span  className="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })
